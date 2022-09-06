@@ -1,0 +1,60 @@
+$purple: #673ab7;
+$green: #8bc34a;
+$black: #000000;
+$gray-400: #c5c5c5;
+$gray-500: #bdbdbd;
+$gray-700: #757575;
+$gray-900: #212121;
+
+$border-color: $gray-400;
+
+$theme-colors: (
+  "primary": $purple,
+  "secondary": $black,
+  "success": $green,
+  "light": #d1c4e9,
+  "dark": #512da8,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: "Questrial", sans-serif;
+}
+html,
+body,
+.tooltip,
+.popover {
+  font-family: "Questrial", sans-serif;
+}
+code,
+kbd,
+pre,
+samp,
+.text-monospace {
+  font-family: "Questrial", sans-serif;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
