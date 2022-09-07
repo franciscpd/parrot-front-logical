@@ -23,7 +23,7 @@ function Navbar() {
   };
 
   return (
-    <S.Navbar bg="white" expand="sm">
+    <S.Navbar bg="white" expand="sm" fixed="top">
       <Container fluid="lg">
         <Link to="/">
           <S.Navbar.Brand>

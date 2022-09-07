@@ -17,12 +17,8 @@ function AuthTemplate() {
 
   return (
     <S.Container className="bg-black">
-      <Row className="w-100">
-        <S.Col
-          xs={{ offset: 1, span: 10 }}
-          md={{ offset: 3, span: 6 }}
-          xxl={{ offset: 4, span: 4 }}
-          className="bg-white border border-gray-400" >
+      <Row className="w-100 d-flex justify-content-center align-items-center">
+        <S.Col xs={10} sm={8} md={6} lg={4} className="bg-white border border-gray-400" >
           <Image src={logo} width={171} height={185} className="mt-4 mb-4" />
           <Outlet />
         </S.Col>
