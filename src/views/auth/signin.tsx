@@ -9,7 +9,7 @@ import Link from "./components/Link";
 import { setCredentials } from "../../store";
 import { SigninProps } from "../../types/auth";
 
-export function SigninView() {
+export default function SignInView() {
   const dispatch = useDispatch();
 
   const schema = Yup.object({
@@ -22,7 +22,7 @@ export function SigninView() {
       token: "123456",
       user: {
         email,
-        name: "Teste of Francis",
+        name: "Francis",
         apartment: "T 07 AP 47"
       }
     }))

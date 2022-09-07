@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Link from "./components/Link";
 
-export function SignupView() {
+export default function SignUpView() {
   const schema = Yup.object({
     email: Yup.string().required().email(),
     password: Yup.string().required(),

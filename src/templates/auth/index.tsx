@@ -1,11 +1,20 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { Row, Image } from "react-bootstrap";
+import { useSelector } from 'react-redux';
+
+import { getCurrentUser, RootState } from '../../store';
 
 import logo from "../../assets/images/logo-color.svg";
 
 import * as S from './styles';
 
 function AuthTemplate() {
+  const user = useSelector<RootState>(getCurrentUser);
+
+  if (user) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <S.Container className="bg-black">
       <Row className="w-100">

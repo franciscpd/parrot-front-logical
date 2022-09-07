@@ -1,17 +1,20 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import AuthTemplate from '../../templates/auth';
+import AuthTemplate from '../../templates/Auth';
+import AppTemplate from '../../templates/App';
 
-import { SigninView } from '../../views/auth/signin';
-import { SignupView } from '../../views/auth/signup';
+import SignInView from '../../views/auth/SignIn';
+import SignUpView from '../../views/auth/SignUp';
 
 function App() {
   return (
     <Routes>
       <Route path="/auth" element={<AuthTemplate />}>
-        <Route path="signin" element={<SigninView />} />
-        <Route path="signup" element={<SignupView />} />
+        <Route path="signin" element={<SignInView />} />
+        <Route path="signup" element={<SignUpView />} />
       </Route>
+      <Route path="/" element={<AppTemplate />}></Route>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )
 }
