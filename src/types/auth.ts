@@ -4,3 +4,8 @@ export type Auth = {
   user: User;
   token: string;
 };
+
+export type SigninProps = {
+  email: string;
+  password: string;
+};
