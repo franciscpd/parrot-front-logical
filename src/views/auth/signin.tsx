@@ -22,7 +22,7 @@ export default function SignInView() {
       token: "123456",
       user: {
         email,
-        name: "Francis",
+        name: "Francis Oliveira",
         apartment: "T 07 AP 47"
       }
     }))
@@ -41,7 +41,7 @@ export default function SignInView() {
           confirmPassword: '',
           apartment: ''
         }}>
-        {({ handleSubmit, handleChange, handleBlur, values, touched, isValid, errors }) => (
+        {({ handleSubmit, handleChange, values, touched, errors }) => (
           <Form className="w-100" noValidate onSubmit={handleSubmit}>
             <Form.Group className="mb-4">
               <Input
@@ -69,7 +69,7 @@ export default function SignInView() {
                 {errors.password}
               </Form.Control.Feedback>
             </Form.Group>
-            <Button type="submit">entrar</Button>
+            <Button type="submit" fullWidth>entrar</Button>
           </Form>
         )}
       </Formik>

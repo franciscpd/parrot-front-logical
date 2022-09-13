@@ -12,6 +12,7 @@ export const Wrapper = styled(ContainerBase)<ContainerProps>`
   flex-grow: 1;
   height: max-content;
   padding-top: 83px;
+  padding: 83px 0px 0px;
 `;
 
 export const Container = styled(ContainerBase)<ContainerProps>`

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { FormControl, FormControlProps } from "react-bootstrap";
 
-export const Input = styled(FormControl)<FormControlProps>`
+type InputProps = React.AllHTMLAttributes<HTMLElement> & FormControlProps;
+
+export default styled(FormControl)<InputProps>`
   font-size: 24px;
   text-align: center;
   border-radius: 10px;

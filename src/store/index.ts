@@ -1,12 +1,22 @@
-import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  configureStore,
+  PayloadAction,
+  combineReducers,
+} from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 
 import { User } from "../types/user";
+import { Post } from "../types/post";
 
 type AuthState = {
   user?: User;
   token?: string;
+};
+
+type PostState = {
+  posts?: Post[];
 };
 
 const authSlice = createSlice({
@@ -30,14 +40,39 @@ const authSlice = createSlice({
   },
 });
 
+const postSlice = createSlice({
+  name: "post",
+  initialState: {
+    posts: [],
+  } as PostState,
+  reducers: {
+    addPost: (state, { payload }: PayloadAction<Partial<Post>>) => {
+      state.posts = [
+        ...(state.posts || []),
+        {
+          ...payload,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+      ];
+    },
+  },
+});
+
 export const { setCredentials, logout } = authSlice.actions;
+export const { addPost } = postSlice.actions;
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, authSlice.reducer);
+const rootReducer = combineReducers({
+  auth: authSlice.reducer,
+  post: postSlice.reducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -48,4 +83,4 @@ export type RootState = ReturnType<typeof store.getState>;
 
 export const persistor = persistStore(store);
 
-export const getCurrentUser = (state: RootState) => state.user;
+export const getCurrentUser = (state: RootState) => state.auth.user;

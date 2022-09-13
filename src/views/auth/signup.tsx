@@ -85,7 +85,7 @@ export default function SignUpView() {
                 {errors.apartment}
               </Form.Control.Feedback>
             </Form.Group>
-            <Button type="submit">entrar</Button>
+            <Button type="submit" fullWidth>entrar</Button>
           </Form>
         )}
       </Formik>
